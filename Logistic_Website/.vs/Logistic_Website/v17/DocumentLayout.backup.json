@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{CB6061C0-2E0C-435D-9B31-ABD1C01B1EE7}|Logistic_Website\\Logistic_Website.csproj|solutionrelative:logistic_website\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CB6061C0-2E0C-435D-9B31-ABD1C01B1EE7}|Logistic_Website\\Logistic_Website.csproj|c:\\users\\ad\\documents\\logistics\\logistic_website\\logistic_website\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{CB6061C0-2E0C-435D-9B31-ABD1C01B1EE7}|Logistic_Website\\Logistic_Website.csproj|solutionrelative:logistic_website\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CB6061C0-2E0C-435D-9B31-ABD1C01B1EE7}|Logistic_Website\\Logistic_Website.csproj|c:\\users\\ad\\documents\\logistics\\logistic_website\\logistic_website\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{CB6061C0-2E0C-435D-9B31-ABD1C01B1EE7}|Logistic_Website\\Logistic_Website.csproj|solutionrelative:logistic_website\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB6061C0-2E0C-435D-9B31-ABD1C01B1EE7}|Logistic_Website\\Logistic_Website.csproj|c:\\users\\ad\\documents\\logistics\\logistic_website\\logistic_website\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{CB6061C0-2E0C-435D-9B31-ABD1C01B1EE7}|Logistic_Website\\Logistic_Website.csproj|solutionrelative:logistic_website\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -36,14 +36,14 @@
               "RelativeDocumentMoniker": "Logistic_Website\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\AD\\Documents\\Logistics\\Logistic_Website\\Logistic_Website\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Logistic_Website\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAABcAAAAAAAAAAAAIwCUAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAIwCUAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-01T03:03:28.093Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "style.css",
               "DocumentMoniker": "C:\\Users\\AD\\Documents\\Logistics\\Logistic_Website\\Logistic_Website\\wwwroot\\css\\style.css",
               "RelativeDocumentMoniker": "Logistic_Website\\wwwroot\\css\\style.css",
@@ -51,21 +51,19 @@
               "RelativeToolTip": "Logistic_Website\\wwwroot\\css\\style.css",
               "ViewState": "AgIAACoAAAAAAAAAAAAAAEAAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-04-01T02:58:20.18Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-01T02:58:20.18Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\AD\\Documents\\Logistics\\Logistic_Website\\Logistic_Website\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Logistic_Website\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\AD\\Documents\\Logistics\\Logistic_Website\\Logistic_Website\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "Logistic_Website\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAIwA8AAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAIwEoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-01T02:57:33.145Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-01T02:57:33.145Z"
             }
           ]
         }

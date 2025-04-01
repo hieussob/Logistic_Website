@@ -97,3 +97,4 @@ C:\Users\AD\Documents\Logistics\Logistic_Website\Logistic_Website\obj\Debug\net9
 C:\Users\AD\Documents\Logistics\Logistic_Website\Logistic_Website\obj\Debug\net9.0\Logistic_Website.genruntimeconfig.cache
 C:\Users\AD\Documents\Logistics\Logistic_Website\Logistic_Website\obj\Debug\net9.0\ref\Logistic_Website.dll
 C:\Users\AD\Documents\Logistics\Logistic_Website\Logistic_Website\obj\Debug\net9.0\compressed\yhewdqdmtw-kz0hq6d4og.gz
+C:\Users\AD\Documents\Logistics\Logistic_Website\Logistic_Website\obj\Debug\net9.0\Logistic_Website.sourcelink.json

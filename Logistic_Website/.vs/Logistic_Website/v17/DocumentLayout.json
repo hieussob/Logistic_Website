@@ -36,7 +36,7 @@
               "RelativeDocumentMoniker": "Logistic_Website\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\AD\\Documents\\Logistics\\Logistic_Website\\Logistic_Website\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Logistic_Website\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAACMAAAAAAAAAAAAIwDMAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAAAFQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-01T03:03:28.093Z",
               "EditorCaption": ""
@@ -51,8 +51,7 @@
               "RelativeToolTip": "Logistic_Website\\wwwroot\\css\\style.css",
               "ViewState": "AgIAACoAAAAAAAAAAAAAAEAAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-04-01T02:58:20.18Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-01T02:58:20.18Z"
             },
             {
               "$type": "Document",
@@ -64,8 +63,7 @@
               "RelativeToolTip": "Logistic_Website\\Views\\Home\\Index.cshtml",
               "ViewState": "AgIAADwAAAAAAAAAAAAIwEoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-01T02:57:33.145Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-01T02:57:33.145Z"
             }
           ]
         }

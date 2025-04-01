@@ -26,11 +26,11 @@
 		<div class="container" style="display: flex; align-items: center;">
 			<div class="logo">Vchain</div>
 			<div class="main-menu">
-				<a href="#" class="active">TRANG CHỦ</a>
-				<a href="#">TRA CỨU BIỂU PHÍ</a>
-				<a href="#">TRACKING</a>
-				<a href="#">LOGISTICS CIRCLE</a>
-				<a href="#">GÓP Ý</a>
+				<a href="#" class="active" onclick="setActive(this)">TRANG CHỦ</a>
+				<a href="#" onclick="setActive(this)" >TRA CỨU BIỂU PHÍ</a>
+				<a href="#" onclick="setActive(this)" >TRACKING</a>
+				<a href="#" onclick="setActive(this)" >LOGISTICS CIRCLE</a>
+				<a href="#" onclick="setActive(this)" >GÓP Ý</a>
 			</div>
 		</div>
 	</div>
@@ -70,3 +70,16 @@
 	@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+<script>
+	function setActive(link) {
+		// Loại bỏ class 'active' từ tất cả các liên kết
+		var links = document.querySelectorAll('.main-menu a');
+		links.forEach(function(item) {
+			item.classList.remove('active');
+		});
+
+		// Thêm class 'active' vào liên kết vừa nhấn
+		link.classList.add('active');
+	}
+</script>
