@@ -2,13 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    font-family: 'Be VietNam Pro', sans-serif;
 }
 
 /* Top navigation bar */
@@ -73,7 +67,8 @@ body {
 }
 
 .footer-content {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid;
 }
 
 .footer h3 {

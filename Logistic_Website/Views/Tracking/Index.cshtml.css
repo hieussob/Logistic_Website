@@ -1,6 +1,5 @@
 ﻿/* Shipping Search Styles */
 body {
-    font-family: Arial, sans-serif;
     background-image:none;
 }
 
@@ -36,14 +35,11 @@ body {
 }
 
 .shipping-row {
-    border: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .shipping-row:last-child {
-    border-top: 1px;
-}
-.shipping-row:first-child {
-    border-bottom: 1px;
+    border-bottom: none;
 }
 
 .shipping-company {
@@ -66,6 +62,10 @@ body {
 .company-logo {
     max-height: 50px;
     max-width: 90%;
+    width: auto;
+    height: auto;
+    display: block;
+    object-fit: contain;
 }
 
 .company-code {
