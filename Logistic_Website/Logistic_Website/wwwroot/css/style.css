@@ -9,6 +9,8 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    margin: 0;
+    padding: 0;
 }
 
 /* Top navigation bar */
@@ -63,13 +65,6 @@ body {
     padding: 20px 0;
     margin-top: auto;
     text-align: center;
-}
-
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    white-space: nowrap;
 }
 
 .footer-content {

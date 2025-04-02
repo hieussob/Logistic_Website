@@ -9,7 +9,7 @@
             </div>
 
             <div class="search-form">
-                <form>
+                <form method="post" asp-controller="Home" asp-action="Search">
                     <!-- Origin field -->
                     <div class="form-row">
                         <div class="icon-circle">
@@ -17,7 +17,14 @@
                         </div>
                         <div class="form-label">Origin</div>
                         <div class="form-input">
-                            <input type="text" placeholder="Nhập cảng đi">
+                        @* <input type="text" name="origin" placeholder="Nhập cảng đi"> *@
+                            <select name="origin" class="form-control">
+                                <option value="">Chọn cảng đi</option>
+                            @foreach (var port in ViewBag.Ports)
+                            {
+                                         <option value="@port.Value">@port.Text</option>
+                            }
+                            </select>
                         </div>
                     </div>
 
@@ -28,7 +35,14 @@
                         </div>
                         <div class="form-label">Destination</div>
                         <div class="form-input">
-                            <input type="text" placeholder="Nhập cảng đến">
+                        @* <input type="text" name="destination" placeholder="Nhập cảng đến"> *@
+                            <select name="destination" class="form-control">
+                                <option value="">Chọn cảng đến</option>
+                            @foreach (var port in ViewBag.Ports)
+                            {
+                                        <option value="@port.Value">@port.Text</option>
+                            }
+                            </select>
                         </div>
                     </div>
 
@@ -38,14 +52,14 @@
                             <div class="date-group">
                                 <label class="date-label">Ngày đi</label>
                                 <div class="date-input-wrapper">
-                                    <input type="date">
+                                    <input type="date" name="departureDate">
                                 </div>
                             </div>
 
                             <div class="date-group">
                                 <label class="date-label">Ngày đến</label>
                                 <div class="date-input-wrapper">
-                                    <input type="date">
+                                    <input type="date" name="arrivalDate">
                                 </div>
                             </div>
                         </div>
