@@ -13,6 +13,10 @@ body {
     padding: 0;
 }
 
+.main-body {
+    min-height: calc(100vh - 250px);
+}
+
 /* Top navigation bar */
 .top-nav {
     background-color: #1a2a3a;

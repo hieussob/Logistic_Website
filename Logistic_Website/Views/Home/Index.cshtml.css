@@ -3,7 +3,7 @@
     background-image: url("https://images.pexels.com/photos/1554646/pexels-photo-1554646.jpeg");
     background-size: cover;
     background-position: center;
-    min-height: 400px;
+    min-height: calc(100vh - 250px);
     position: relative;
     padding: 30px 0 100px;
 }
