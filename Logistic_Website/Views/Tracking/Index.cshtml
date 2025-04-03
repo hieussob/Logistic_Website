@@ -2,7 +2,6 @@
 
 @{
     ViewBag.Title = "Tìm kiếm hãng tàu";
-    var query = ViewBag.Query;
 }
 
 <div class="container mt-5">
@@ -10,45 +9,40 @@
         <div class="col">
             <div class="d-flex justify-content-between align-items-end mb-3">
                 <div class="w-75">
-                    @using (Html.BeginForm("Index", "Tracking", FormMethod.Get, new { @class = "d-flex flex-column" }))
-                    {
+                    <div class="d-flex flex-column">
                         <p class="text-center fw-bold" style="font-size: 31px;">Nhập tên hoặc tên viết tắt của hãng tàu</p>
                         <div class="input-group d-flex flex-row justify-content-evenly text-center">
                             <div>
-                                <input type="text" name="query" class="form-control search-input" value="@query" />
+                                <input type="text" id="query" class="form-control search-input" />
                             </div>
                             <div>
-                                <button type="submit" class="btn btn-search">SEARCH</button>
+                                <button id="searchBtn" class="btn btn-search">SEARCH</button>
                             </div>
                         </div>
-                    }
+                    </div>
                 </div>
                 <div class="route-icon col-2">
                     <img src="~/content/images/route-icon.png" class="w-100" alt="Shipping routes" />
                 </div>
             </div>
-
-            <div class="shipping-grid">
-                @{
-                    var rows = (int)Math.Ceiling(Model.Count / 6.0);
-                    for (int i = 0; i < rows; i++)
-                    {
-                        <div class="row shipping-row">
-                            @foreach (var company in Model.Skip(i * 6).Take(6))
-                            {
-                                <div class="col-md-2 shipping-company">
-                                    <div class="logo-container">
-                                        <img src="~/content/images/@company.Logo" alt="@company.Name" style="max-height :50px; max-width:90%;" />
-                                    </div>
-                                    <div class="company-code">
-                                        <a href="@company.Website" target="_blank" rel="noopener noreferrer" class="shipping-link">@company.Code</a>
-                                    </div>
-                                </div>
-                            }
-                        </div>
-                    }
-                }
+            <div id="resultContainer">
+                @await Html.PartialAsync("_LogisticGroup", Model)
             </div>
         </div>
     </div>
 </div>
+<script>
+    document.getElementById("searchBtn").addEventListener("click", function () {
+            const value = document.getElementById("query").value
+            console.log(value)
+            fetch("@Url.Action("Search", "Tracking")", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(value)
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("resultContainer").innerHTML = data;
+            })
+        });
+</script>

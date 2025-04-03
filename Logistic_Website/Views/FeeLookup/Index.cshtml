@@ -1,0 +1,131 @@
+﻿@model List<FeeLookup>
+
+<div class="container w-75 my-5">
+    <div class="row mb-5 justify-content-center">
+        <div class="col-8">
+            <select id="dropdown" class="form-select" multiple>
+                @foreach (var item in Model)
+                {
+                    <option value="@item.Name">@item.Name</option>
+                }
+            </select>
+        </div>
+        <button id="searchBtn" class="btn text-uppercase fw-bold col-2" style="background-color:#1b2737; color:white;">
+            Search
+        </button>
+    </div>
+
+    <div class="row w-100 mb-5 justify-content-between ">
+        <button class="btn  col-3" style="background-color: #d9d9d9;
+        color: #1b2737;">
+            llc export
+        </button>
+        <button class="btn  col-3" style="background-color: #d9d9d9;
+        color: #1b2737;">
+            llc import
+        </button>
+        <button class="btn col-3" style="background-color: #d9d9d9;
+        color: #1b2737;">
+           lift on/ lift off fee
+        </button>
+    </div>
+
+    <div class="row w-100 mb-5 justify-content-around">
+        <button class="btn col-3 text-uppercase" style="background-color: #d9d9d9;
+        color: #1b2737;">
+            Dem det export
+        </button>
+        <button class="btn  col-3" style="background-color: #d9d9d9;
+        color: #1b2737;">
+            dem det import
+        </button>
+    </div>
+</div>
+<div id="feeTableContainer">
+    @await Html.PartialAsync("_FeeTable", Model)
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const dropdown = new Choices("#dropdown", {
+            removeItemButton: true,
+            placeholder: true,
+            placeholderValue: "",
+            searchEnabled: false,
+        });
+        document.getElementById("searchBtn").addEventListener("click", function () {
+            const selectedValues = dropdown.getValue().map(item => item.value);
+            fetch("@Url.Action("Search", "FeeLookup")", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(selectedValues)
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("feeTableContainer").innerHTML = data;
+            })
+        });
+    });
+</script>
+<style>
+    .choices {
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 0;
+        font-size: 16px;
+    }
+
+    .btn {
+        border-radius: unset;
+        font-weight: bold;
+        text-transform: uppercase;
+        height: 47px;
+    }
+
+    .choices__inner {
+        border-radius: unset;
+    }
+
+    .import-btn {
+        background-color: #d9d9d9;
+        color: #1b2737;
+    }
+
+    .tg {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+        .tg td {
+            border-color: black;
+            border-style: solid;
+            border-width: 1px;
+            font-size: 14px;
+            overflow: hidden;
+            padding: 10px 5px;
+            word-break: normal;
+        }
+
+        .tg th {
+            border-color: black;
+            border-style: solid;
+            border-width: 1px;
+            font-size: 14px;
+            font-weight: normal;
+            overflow: hidden;
+            padding: 10px 5px;
+            word-break: normal;
+        }
+
+        .tg .tg-c3ow {
+            border-color: inherit;
+            text-align: center;
+            vertical-align: top
+        }
+
+        .tg .tg-7btt {
+            border-color: inherit;
+            font-weight: bold;
+            text-align: center;
+            vertical-align: central
+        }
+</style>

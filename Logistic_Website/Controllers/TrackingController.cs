@@ -1,18 +1,26 @@
 ﻿
 using Logistic_Website.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.RegularExpressions;
 
 namespace Logistic_Website.Controllers;
 
 public class TrackingController : Controller
 {
-    public IActionResult Index(string query)
+    public IActionResult Index()
     {
         var groups = GetShippingCompanies();
-
-        if (!string.IsNullOrEmpty(query))
+        return View(groups);
+    }
+    [HttpPost]
+    public IActionResult Search([FromBody] string query)
+    {
+        var groups = GetShippingCompanies();
+        if (string.IsNullOrEmpty(query))
         {
-            groups =
+            return PartialView("_LogisticGroup", groups);
+        }
+        groups =
             [
                 .. groups.Where(c =>
                     c.Name.Contains(query, StringComparison.OrdinalIgnoreCase)
@@ -20,10 +28,7 @@ public class TrackingController : Controller
                     || c.Code.Contains(query, StringComparison.OrdinalIgnoreCase)
                 ),
             ];
-            ViewBag.Query = query;
-        }
-
-        return View(groups);
+        return PartialView("_LogisticGroup", groups);
     }
 
     private static List<LogisticGroup> GetShippingCompanies()

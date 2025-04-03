@@ -1,0 +1,56 @@
+﻿@model List<FeeLookup>
+<div class="w-100">
+    <table class="tg mb-5" style="width:95%; margin:auto;">
+        <thead>
+            <tr>
+                <th class="tg-7btt" rowspan="2">Shipping Line</th>
+                <th class="tg-7btt" colspan="5" rowspan="2">THC</th>
+                <th class="tg-7btt" colspan="2" rowspan="2">DO Fee</th>
+                <th class="tg-7btt" rowspan="3">Seal fee</th>
+                <th class="tg-7btt" rowspan="3">Manifest Submission Fee</th>
+                <th class="tg-7btt" rowspan="3">B/L amendment fee</th>
+                <th class="tg-7btt" rowspan="3">Late payment</th>
+            </tr>
+            <tr>
+            </tr>
+            <tr>
+                <th class="tg-7btt"></th>
+                <th class="tg-7btt">20'DC</th>
+                <th class="tg-7btt">40'DC</th>
+                <th class="tg-7btt">45'DC</th>
+                <th class="tg-7btt">20' RF/ FL/ OT</th>
+                <th class="tg-7btt">40' RF/ FL/ OT</th>
+                <th class="tg-7btt">Manunal</th>
+                <th class="tg-7btt">Electric</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="tg-7btt">@item.Name</td>
+                        <td class="tg-c3ow">@item.THC.DC20</td>
+                        <td class="tg-c3ow">@item.THC.DC40</td>
+                        <td class="tg-c3ow">@item.THC.DC45</td>
+                        <td class="tg-c3ow">@item.THC.RFFLOT20</td>
+                        <td class="tg-c3ow">@item.THC.RFFLOT40</td>
+                        @if (!item.DOFee.IsMerge)
+                        {
+                            <td class="tg-c3ow">@item.DOFee.Manual</td>
+                            <td class="tg-c3ow">@item.DOFee.Electric</td>
+                        }
+                        else
+                        {
+                            <td class="tg-c3ow" colspan="2">@item.DOFee.MergeFee</td>
+                        }
+                        <td class="tg-c3ow">@item.SealFee</td>
+                        <td class="tg-c3ow">@item.ManifestSubmissionFee</td>
+                        <td class="tg-c3ow">@item.BLAmendmentFee</td>
+                        <td class="tg-c3ow">@item.LatePayment</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

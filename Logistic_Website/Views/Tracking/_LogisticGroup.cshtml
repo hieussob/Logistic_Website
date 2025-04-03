@@ -1,0 +1,76 @@
+﻿@model List<LogisticGroup>
+
+<div class="shipping-grid">
+    @{
+        var rows = (int)Math.Ceiling(Model.Count / 6.0);
+        for (int i = 0; i < rows; i++)
+        {
+            <div class="row shipping-row">
+                @foreach (var company in Model.Skip(i * 6).Take(6))
+                {
+                    <div class="col-md-2 shipping-company">
+                        <div class="logo-container">
+                            <img src="~/content/images/@company.Logo" alt="@company.Name" style="max-height :50px; max-width:90%;" />
+                        </div>
+                        <div class="company-code">
+                            <a href="@company.Website" target="_blank" rel="noopener noreferrer" class="shipping-link">@company.Code</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    }
+</div>
+<style>
+    .shipping-grid {
+        border: none;
+    }
+
+    .shipping-row {
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+        .shipping-row:last-child {
+            border-bottom: none;
+        }
+
+    .shipping-company {
+        text-align: center;
+        padding: 15px 5px;
+    }
+
+        .shipping-company:last-child {
+            border-right: none;
+        }
+
+    .logo-container {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .company-logo {
+        max-height: 50px;
+        max-width: 90%;
+        width: auto;
+        height: auto;
+        display: block;
+        object-fit: contain;
+    }
+
+    .company-code {
+        font-size: 0.8rem;
+        color: #4a90e2;
+    }
+
+    .shipping-link {
+        color: #4a90e2;
+        text-decoration: none;
+    }
+
+        .shipping-link:hover {
+            text-decoration: underline;
+        }
+</style>
