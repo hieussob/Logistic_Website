@@ -5,7 +5,7 @@
         <div class="container">
             <div class="title-section">
                 <h1>TRA CỨU LỊCH TÀU</h1>
-                <h2>SCHEDULE</h2>
+                <h2>SHIPPING SCHEDULE</h2>
             </div>
 
             <div class="search-form">
@@ -17,14 +17,7 @@
                         </div>
                         <div class="form-label">Origin</div>
                         <div class="form-input">
-                        @* <input type="text" name="origin" placeholder="Nhập cảng đi"> *@
-                            <select name="origin" class="form-control">
-                                <option value="">Chọn cảng đi</option>
-                            @foreach (var port in ViewBag.Ports)
-                            {
-                                         <option value="@port.Value">@port.Text</option>
-                            }
-                            </select>
+                        <input type="text" id="origin" name="origin" class="form-control" placeholder="Nhập cảng đi" autocomplete="off">
                         </div>
                     </div>
 
@@ -35,14 +28,8 @@
                         </div>
                         <div class="form-label">Destination</div>
                         <div class="form-input">
-                        @* <input type="text" name="destination" placeholder="Nhập cảng đến"> *@
-                            <select name="destination" class="form-control">
-                                <option value="">Chọn cảng đến</option>
-                            @foreach (var port in ViewBag.Ports)
-                            {
-                                        <option value="@port.Value">@port.Text</option>
-                            }
-                            </select>
+                        <input type="text" id="destination" name="destination" class="form-control" placeholder="Nhập cảng đến" autocomplete="off">
+                            
                         </div>
                     </div>
 
@@ -74,3 +61,47 @@
             </div>
         </div>
     </div>
+
+@section Scripts {
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+
+        <script>
+            $(document).ready(function () {
+                $('#origin').autocomplete({
+                    source: function (request, response) {
+                        $.ajax({
+                            url: '@Url.Action("GetPorts", "Home")', 
+                            data: {
+                                query: request.term
+                            },
+                            success: function (data) {
+                                response(data); 
+                            }
+                        });
+                    },
+                    minLength: 1
+                });
+
+                $('#destination').autocomplete({
+                    source: function (request, response) {
+                        $.ajax({
+                            url: '@Url.Action("GetPorts", "Home")',
+                            data: {
+                                query: request.term
+                            },
+                            success: function (data) {
+                                response(data);
+                            }
+                        });
+                    },
+                    minLength: 1
+                });
+            });
+        </script>
+}
+
+
+
+

@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Globalization;
 using Logistic_Website.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -21,26 +22,41 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        var ports = new List<SelectListItem>
-        {
-            new SelectListItem { Value = "HCM", Text = "Hồ Chí Minh" },
-            new SelectListItem { Value = "HN", Text = "Hà Nội" },
-            new SelectListItem { Value = "DN", Text = "Đà Nẵng" },
-            new SelectListItem { Value = "HAIPHONG", Text = "Hải Phòng" },
-            new SelectListItem { Value = "SINGAPORE", Text = "Singapore" }
-        };
-
-        ViewBag.Ports = ports;
         return View();
     }
 
-    [HttpPost]
-    public IActionResult Search(string origin, string destination, int? page)
+    public IActionResult GetPorts(string query)
     {
-        TransientData.FilterVesselChedules = _vesselSchedules.Where(s => s.Origin == origin && s.Destination == destination).ToList();
+        var ports = new List<SelectListItem>
+        {
+            new SelectListItem { Value = "HOCHIMINH", Text = "HOCHIMINH" },
+            new SelectListItem { Value = "DANANG", Text = "DANANG" },
+            new SelectListItem { Value = "HAIPHONG", Text = "HAIPHONG" },
+            new SelectListItem { Value = "SINGAPORE", Text = "SINGAPORE" }
+        };
+
+        var filteredPorts = ports
+            .Where(p => p.Text.Contains(query, StringComparison.OrdinalIgnoreCase))
+            .Select(p => p.Text)
+            .ToList();
+
+        return Json(filteredPorts);
+    }
+
+    [HttpPost]
+    public IActionResult Search(string origin, string destination, int? page, DateTime? departureDate, DateTime? arrivalDate)
+    {
+        departureDate ??= DateTime.MinValue;
+        arrivalDate ??= DateTime.MaxValue;
+
+        TransientData.FilterVesselChedules = _vesselSchedules.Where(s => s.Origin == origin
+            && s.Destination == destination
+            && DateTime.TryParseExact(s.ETD, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime etd) && etd >= departureDate
+            && DateTime.TryParseExact(s.ETA, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime eta) && eta <= arrivalDate
+            ).ToList();
 
         int pageSize = 3;
-        int pageNumber = page ?? 1; 
+        int pageNumber = page ?? 1;
         var pageFilterSchedule = TransientData.FilterVesselChedules.ToPagedList(pageNumber, pageSize);
 
         return View(pageFilterSchedule);
