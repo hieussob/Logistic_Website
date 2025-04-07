@@ -76,160 +76,20 @@
 				Display = PagedListDisplayMode.IfNeeded,
 				UlElementClasses = new[] { "pagination", "justify-content-center" },
 				LiElementClasses = new[] { "page-item" },
-				LinkToPreviousPageFormat = "<<",
-				LinkToNextPageFormat = ">>"
+				LinkToPreviousPageFormat = "<",
+				LinkToNextPageFormat = ">"
 			})
 	</div>
 </div>
 
-
-		
-
-		<style>
-		.page-title {
-			text-align: center;
-			margin: 20px 0;
-			font-size: 24px;
-			font-weight: bold;
-		}
-			/* Schedule Results */
-		.schedule-list {
-			margin: 20px 0;
-		}
-
-		.schedule-item {
-			background-color: #e0e0e0;
-			border-radius: 10px;
-			margin-bottom: 20px;
-			padding: 15px;
-			position: relative;
-		}
-
-		.schedule-item.highlighted {
-			border: 2px solid #8a2be2;
-		}
-
-		.shipping-line {
-			background-color: #0f2649;
-			color: white;
-			display: inline-block;
-			padding: 10px 15px;
-			margin-bottom: 10px;
-			border-radius: 3px;
-			font-weight: bold;
-		}
-
-		.fee-link {
-			display: block;
-			color: #0f2649;
-			text-decoration: none;
-			margin: 5px 0;
-			font-size: 14px;
-		}
-
-		.route-info {
-			display: flex;
-			align-items: center;
-			margin: -50px 0 15px 0;
-		}
-
-		.location {
-			flex: 1;
-			text-align: center;
-		}
-
-		.location-icon {
-			font-size: 18px;
-			color: #0f2649;
-			margin-bottom: 5px;
-		}
-
-		.location-name {
-			font-weight: bold;
-			font-size: 16px;
-			margin-bottom: 5px;
-		}
-
-		.location-date {
-			font-size: 14px;
-			color: #444;
-		}
-
-		.route-arrow {
-			font-size: 24px;
-			margin: 0 20px;
-			color: #0f2649;
-		}
-
-		.schedule-details {
-			background-color: #f0f0f0;
-			border-radius: 5px;
-			padding: 15px;
-			margin-top: 10px;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-		}
-
-		.days-count {
-			font-weight: bold;
-			font-size: 16px;
-			margin-right: 10px;
-		}
-
-		.vessel-info {
-			flex: 1;
-		}
-
-		.vessel-label {
-			font-size: 14px;
-			margin-bottom: 5px;
-		}
-
-		.vessel-name {
-			font-size: 14px;
-			font-weight: bold;
-		}
-
-		.status-label {
-			margin-right: 15px;
-			font-size: 14px;
-		}
-
-		.action-buttons {
-			display: flex;
-		}
-
-		.action-button {
-			margin-left: 5px;
-			padding: 8px 12px;
-			font-size: 13px;
-			border: none;
-			cursor: pointer;
-		}
-
-		.cut-off-btn {
-			background-color: #f5f5f5;
-			color: #333;
-		}
-
-		.schedule-btn {
-			background-color: #f5f5f5;
-			color: #333;
-		}
-
-		.detail-btn {
-			background-color: #0f2649;
-			color: white;
-		}
-
-		/* Pagination */
-		.pagination {
-			display:flex;
-			justify-content:center;
-			text-align: center;
-			margin: 0px 0px 20px 0px;
-		}
+<style>
+	/* Pagination */
+	.pagination {
+		display: flex;
+		justify-content: center;
+		text-align: center;
+		margin: 0px 0px 20px 0px;
+	}
 
 		.pagination a, .pagination span {
 			display: inline-block;
@@ -241,41 +101,9 @@
 
 		.pagination .active {
 			border: 1px solid black;
-			background:#0f2649;
-			color:white !important;
+			background: #0f2649;
+			color: white !important;
 		}
-
-		media (max-width: 1200px) {
-			.container {
-				width: 95%;
-			}
-		}
-
-		media (max-width: 768px) {
-			.route-info {
-				flex-direction: column;
-			}
-
-			.location {
-				margin: 10px 0;
-			}
-
-			.route-arrow {
-				transform: rotate(90deg);
-				margin: 10px 0;
-			}
-
-			.schedule-details {
-				flex-direction: column;
-				align-items: flex-start;
-			}
-
-			.action-buttons {
-				margin-top: 10px;
-				width: 100%;
-				justify-content: space-between;
-			}
-		}
-		</style>
+</style>
 
 

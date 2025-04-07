@@ -1,0 +1,108 @@
+﻿
+.pagination {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0px 0px 20px 0px;
+}
+
+.pagination a, .pagination span {
+    display: inline-block;
+    padding: 5px 10px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    color: gray;
+}
+
+.pagination .active {
+    border: 1px solid black;
+    background: #0f2649;
+    color: white !important;
+}
+.area-value {
+    font-weight: bold;
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+.filter-group-container {
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+
+.info-icon {
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.info-text {
+    flex-grow: 1;
+    font-size: 14px;
+}
+
+.area-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 3px;
+    margin-left: auto;
+    font-size: 14px;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+}
+
+.no-border {
+    border: none !important;
+    outline: none !important; /* Để tránh viền mặc định khi focus */
+}
+
+.filter-label {
+    font-weight: bold;
+    color: #333;
+    padding-bottom: 5px;
+    display: block;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.filter-content {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    padding: 0;
+    position: relative;
+}
+
+.filter-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding: 8px 10px;
+    border-right: 1px solid #ddd;
+}
+
+
+.area-input {
+    padding: 8px 10px;
+    border: none;
+    width: 100%;
+}

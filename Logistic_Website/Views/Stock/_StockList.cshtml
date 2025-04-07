@@ -1,0 +1,53 @@
+﻿@using X.PagedList.Mvc.Core
+@using X.PagedList
+@model X.PagedList.IPagedList<Stock>
+
+<div class="warehouse-list">
+    @{
+        foreach (var item in Model)
+        {
+
+            <div class="warehouse-card">
+                <div class="warehouse-image">
+                    <img src="@item.Image" alt="Kho CFS SITC">
+                </div>
+                <div class="warehouse-info">
+                    <h2 class="warehouse-name">@item.Name</h2>
+                    <div class="info-row">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-text">@item.Address</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-icon">
+                            <i class="fas fa-warehouse"></i>
+                        </div>
+                        <div class="info-text">@item.Type</div>
+                        <div class="area-label">m<sup>2</sup></div>
+                        <div class="area-value">@item.Area m2</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-text">@item.Email</div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    <!-- Warehouse  -->
+</div>
+
+<div class="text-center">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }),
+            new PagedListRenderOptions
+    {
+        Display = PagedListDisplayMode.IfNeeded,
+        UlElementClasses = new[] { "pagination", "justify-content-center" },
+        LiElementClasses = new[] { "page-item" },
+        LinkToPreviousPageFormat = "<",
+        LinkToNextPageFormat = ">"
+    })
+</div>

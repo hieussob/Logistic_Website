@@ -40,7 +40,8 @@
 					<a asp-controller="FeeLookup" asp-action="Index" onclick="setActive(this)">TRA CỨU BIỂU PHÍ</a>
 					<a asp-controller="Tracking" asp-action="Index" onclick="setActive(this)">TRACKING</a>
 					<a href="#" onclick="setActive(this)">LOGISTICS CIRCLE</a>
-					<a href="#" onclick="setActive(this)">KHO</a>
+					@* <a href="~/Stock/Index" onclick="setActive(this)">KHO</a> *@
+					<a asp-controller="Stock" asp-action="Index" onclick="setActive(this)">KHO</a>
 				</div>
 			</div>
 		</div>
@@ -85,13 +86,11 @@
 
 <script>
 	function setActive(link) {
-		// Loại bỏ class 'active' từ tất cả các liên kết
 		var links = document.querySelectorAll('.main-menu a');
 		links.forEach(function (item) {
 			item.classList.remove('active');
 		});
 
-		// Thêm class 'active' vào liên kết vừa nhấn
 		link.classList.add('active');
 	}
 </script>
