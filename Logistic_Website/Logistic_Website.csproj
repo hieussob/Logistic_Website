@@ -9,6 +9,7 @@
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="EPPlus" />
+		<PackageReference Include="Microsoft.jQuery.Unobtrusive.Ajax" />
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
 		<PackageReference Include="X.PagedList.Mvc.Core" />
 	</ItemGroup>

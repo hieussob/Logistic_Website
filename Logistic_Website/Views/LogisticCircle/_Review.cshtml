@@ -1,6 +1,22 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-<div>Review work!</div>
+﻿@model List<RateUserInfor>
+<div class="w-100 px-4">
+    <div class="d-flex" style="gap: 20px; height:60px;">
+        <div class="position-relative w-100">
+            <input id="searchReviewInput" type="text"
+                   class="form-control rounded-pill px-4 pe-5 h-100" />
+
+            <img src="~/content/images/search-icon.png"
+                 alt="Search"
+                 style="position: absolute; top: 50%; right: 30px; transform: translateY(-50%); width:36px; height: 36px;" />
+        </div>
+
+        <button id="searchReviewButton" class="btn text-light rounded-pill px-4 fw-bold fs-6" style="width:15%; background-color:#1a2737">
+            Search
+        </button>
+    </div>
+
+    <!-- Vùng hiển thị kết quả tìm kiếm -->
+    <div id="searchReviewResults">
+        @await Html.PartialAsync("_SearchReviewResult", Model)
+    </div>
+</div>
