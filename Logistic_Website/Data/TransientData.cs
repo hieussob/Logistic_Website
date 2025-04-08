@@ -7,7 +7,12 @@ namespace Logistic_Website.Data
     {
         public static List<VesselSchedule> GetScheduleDetails()
         {
-            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Excel", "SCHEDULEDATA.xlsx");
+            string filePath = Path.Combine(
+                Directory.GetCurrentDirectory(),
+                "wwwroot",
+                "Excel",
+                "SCHEDULEDATA.xlsx"
+            );
             List<VesselSchedule> dataList = new List<VesselSchedule>();
 
             if (File.Exists(filePath))
@@ -21,20 +26,22 @@ namespace Logistic_Website.Data
                     int rowCount = 0;
                     for (int row = 2; row <= worksheet.Dimension.Rows; row++)
                     {
-                        if (!string.IsNullOrEmpty(worksheet.Cells[row, 1].Text) ||
-                            !string.IsNullOrEmpty(worksheet.Cells[row, 2].Text) ||
-                            !string.IsNullOrEmpty(worksheet.Cells[row, 3].Text) ||
-                            !string.IsNullOrEmpty(worksheet.Cells[row, 4].Text) ||
-                            !string.IsNullOrEmpty(worksheet.Cells[row, 5].Text) ||
-                            !string.IsNullOrEmpty(worksheet.Cells[row, 6].Text) ||
-                            !string.IsNullOrEmpty(worksheet.Cells[row, 7].Text) ||
-                            !string.IsNullOrEmpty(worksheet.Cells[row, 8].Text) ||
-                            !string.IsNullOrEmpty(worksheet.Cells[row, 9].Text) ||
-                            !string.IsNullOrEmpty(worksheet.Cells[row, 10].Text) ||
-                            !string.IsNullOrEmpty(worksheet.Cells[row, 11].Text) ||
-                            !string.IsNullOrEmpty(worksheet.Cells[row, 12].Text) ||
-                            !string.IsNullOrEmpty(worksheet.Cells[row, 13].Text) ||
-                            !string.IsNullOrEmpty(worksheet.Cells[row, 14].Text))
+                        if (
+                            !string.IsNullOrEmpty(worksheet.Cells[row, 1].Text)
+                            || !string.IsNullOrEmpty(worksheet.Cells[row, 2].Text)
+                            || !string.IsNullOrEmpty(worksheet.Cells[row, 3].Text)
+                            || !string.IsNullOrEmpty(worksheet.Cells[row, 4].Text)
+                            || !string.IsNullOrEmpty(worksheet.Cells[row, 5].Text)
+                            || !string.IsNullOrEmpty(worksheet.Cells[row, 6].Text)
+                            || !string.IsNullOrEmpty(worksheet.Cells[row, 7].Text)
+                            || !string.IsNullOrEmpty(worksheet.Cells[row, 8].Text)
+                            || !string.IsNullOrEmpty(worksheet.Cells[row, 9].Text)
+                            || !string.IsNullOrEmpty(worksheet.Cells[row, 10].Text)
+                            || !string.IsNullOrEmpty(worksheet.Cells[row, 11].Text)
+                            || !string.IsNullOrEmpty(worksheet.Cells[row, 12].Text)
+                            || !string.IsNullOrEmpty(worksheet.Cells[row, 13].Text)
+                            || !string.IsNullOrEmpty(worksheet.Cells[row, 14].Text)
+                        )
                         {
                             rowCount = row;
                         }
@@ -57,7 +64,7 @@ namespace Logistic_Website.Data
                             MV = worksheet.Cells[row, 11].Text,
                             ETDHub = worksheet.Cells[row, 12].Text,
                             ETA = worksheet.Cells[row, 13].Text,
-                            TransitTime = worksheet.Cells[row, 14].Text
+                            TransitTime = worksheet.Cells[row, 14].Text,
                         };
 
                         dataList.Add(data);
@@ -65,14 +72,18 @@ namespace Logistic_Website.Data
                 }
             }
             return dataList;
-
         }
 
         public static List<VesselSchedule> FilterVesselChedules;
 
         public static List<Stock> GetStocks()
         {
-            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Excel", "data.xlsx");
+            string filePath = Path.Combine(
+                Directory.GetCurrentDirectory(),
+                "wwwroot",
+                "Excel",
+                "data.xlsx"
+            );
             List<Stock> stocks = new List<Stock>();
 
             if (File.Exists(filePath))
@@ -86,15 +97,17 @@ namespace Logistic_Website.Data
                     int rowCount = 0;
                     for (int row = 3; row <= worksheet.Dimension.Rows; row++)
                     {
-                        if (!string.IsNullOrEmpty(worksheet.Cells[row, 1].Text) ||
-                            !string.IsNullOrEmpty(worksheet.Cells[row, 2].Text) ||
-                            !string.IsNullOrEmpty(worksheet.Cells[row, 3].Text) ||
-                            !string.IsNullOrEmpty(worksheet.Cells[row, 4].Text) ||
-                            !string.IsNullOrEmpty(worksheet.Cells[row, 5].Text) ||
-                            !string.IsNullOrEmpty(worksheet.Cells[row, 6].Text) ||
-                            !string.IsNullOrEmpty(worksheet.Cells[row, 7].Text) ||
-                            !string.IsNullOrEmpty(worksheet.Cells[row, 8].Text) ||
-                            !string.IsNullOrEmpty(worksheet.Cells[row, 9].Text))
+                        if (
+                            !string.IsNullOrEmpty(worksheet.Cells[row, 1].Text)
+                            || !string.IsNullOrEmpty(worksheet.Cells[row, 2].Text)
+                            || !string.IsNullOrEmpty(worksheet.Cells[row, 3].Text)
+                            || !string.IsNullOrEmpty(worksheet.Cells[row, 4].Text)
+                            || !string.IsNullOrEmpty(worksheet.Cells[row, 5].Text)
+                            || !string.IsNullOrEmpty(worksheet.Cells[row, 6].Text)
+                            || !string.IsNullOrEmpty(worksheet.Cells[row, 7].Text)
+                            || !string.IsNullOrEmpty(worksheet.Cells[row, 8].Text)
+                            || !string.IsNullOrEmpty(worksheet.Cells[row, 9].Text)
+                        )
                         {
                             rowCount = row;
                         }
@@ -111,7 +124,7 @@ namespace Logistic_Website.Data
                             Telephone = worksheet.Cells[row, 5].Text,
                             Email = worksheet.Cells[row, 6].Text,
                             Image = worksheet.Cells[row, 8].Text,
-                            Province = worksheet.Cells[row, 9].Text
+                            Province = worksheet.Cells[row, 9].Text,
                         };
 
                         stocks.Add(data);
@@ -120,6 +133,5 @@ namespace Logistic_Website.Data
             }
             return stocks;
         }
-
     }
 }

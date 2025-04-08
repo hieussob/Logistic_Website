@@ -33,7 +33,7 @@ public class HomeController : Controller
             new SelectListItem { Value = "HOCHIMINH", Text = "HOCHIMINH" },
             new SelectListItem { Value = "DANANG", Text = "DANANG" },
             new SelectListItem { Value = "HAIPHONG", Text = "HAIPHONG" },
-            new SelectListItem { Value = "SINGAPORE", Text = "SINGAPORE" }
+            new SelectListItem { Value = "SINGAPORE", Text = "SINGAPORE" },
         };
 
         var filteredPorts = ports
@@ -45,20 +45,46 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public IActionResult Search(string origin, string destination, int? page, DateTime? departureDate, DateTime? arrivalDate)
+    public IActionResult Search(
+        string origin,
+        string destination,
+        int? page,
+        DateTime? departureDate,
+        DateTime? arrivalDate
+    )
     {
         departureDate ??= DateTime.MinValue;
         arrivalDate ??= DateTime.MaxValue;
 
-        TransientData.FilterVesselChedules = _vesselSchedules.Where(s => s.Origin == origin
-            && s.Destination == destination
-            && DateTime.TryParseExact(s.ETD, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime etd) && etd >= departureDate
-            && DateTime.TryParseExact(s.ETA, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime eta) && eta <= arrivalDate
-            ).ToList();
+        TransientData.FilterVesselChedules = _vesselSchedules
+            .Where(s =>
+                s.Origin == origin
+                && s.Destination == destination
+                && DateTime.TryParseExact(
+                    s.ETD,
+                    "dd/MM/yyyy",
+                    CultureInfo.InvariantCulture,
+                    DateTimeStyles.None,
+                    out DateTime etd
+                )
+                && etd >= departureDate
+                && DateTime.TryParseExact(
+                    s.ETA,
+                    "dd/MM/yyyy",
+                    CultureInfo.InvariantCulture,
+                    DateTimeStyles.None,
+                    out DateTime eta
+                )
+                && eta <= arrivalDate
+            )
+            .ToList();
 
         int pageSize = 3;
         int pageNumber = page ?? 1;
-        var pageFilterSchedule = TransientData.FilterVesselChedules.ToPagedList(pageNumber, pageSize);
+        var pageFilterSchedule = TransientData.FilterVesselChedules.ToPagedList(
+            pageNumber,
+            pageSize
+        );
 
         return View(pageFilterSchedule);
     }
@@ -68,7 +94,10 @@ public class HomeController : Controller
     {
         int pageSize = 3;
         int pageNumber = page ?? 1;
-        var pageFilterSchedule = TransientData.FilterVesselChedules.ToPagedList(pageNumber, pageSize);
+        var pageFilterSchedule = TransientData.FilterVesselChedules.ToPagedList(
+            pageNumber,
+            pageSize
+        );
 
         return View(pageFilterSchedule);
     }

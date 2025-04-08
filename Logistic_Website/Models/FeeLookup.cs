@@ -10,6 +10,7 @@ public class FeeLookup
     public string BLAmendmentFee { get; set; }
     public string LatePayment { get; set; }
 }
+
 public class DeliveryOrderFee
 {
     public string Manual { get; set; }
@@ -17,6 +18,7 @@ public class DeliveryOrderFee
     public bool IsMerge => string.IsNullOrEmpty(Manual) && string.IsNullOrEmpty(Electric);
     public string MergeFee { get; set; }
 }
+
 public class TerminalHandlingCharge
 {
     public string DC20 { get; set; }

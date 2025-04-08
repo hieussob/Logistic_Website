@@ -12,7 +12,14 @@ namespace Logistic_Website.Controllers
         public IActionResult Index(int? page)
         {
             ViewBag.Provinces = new[] { "HOCHIMINH", "HAI PHONG" };
-            ViewBag.Types = new[] { "Kho thường", "Kho ngoại quan", "Kho CFS", "Kho lạnh", "Kho DG" };
+            ViewBag.Types = new[]
+            {
+                "Kho thường",
+                "Kho ngoại quan",
+                "Kho CFS",
+                "Kho lạnh",
+                "Kho DG",
+            };
 
             var stocks = TransientData.GetStocks();
             int pageSize = 3;
@@ -34,18 +41,31 @@ namespace Logistic_Website.Controllers
             //ViewData["Type"] = type;
             //ViewData["Area"] = area;
             ViewBag.Provinces = new[] { "HOCHIMINH", "HAI PHONG" };
-            ViewBag.Types = new[] { "Kho thường", "Kho ngoại quan", "Kho CFS", "Kho lạnh", "Kho DG" };
+            ViewBag.Types = new[]
+            {
+                "Kho thường",
+                "Kho ngoại quan",
+                "Kho CFS",
+                "Kho lạnh",
+                "Kho DG",
+            };
 
             return View("Index", stockPagings);
         }
 
         private List<Stock> GetFilteredStock(string province, string type, string area)
         {
-            return TransientData.GetStocks().Where(x =>
-                (string.IsNullOrEmpty(province) || x.Province.ToLower() == province.ToLower()) &&
-                (string.IsNullOrEmpty(type) || x.Type.ToLower().Equals(type.ToLower())) &&
-                (string.IsNullOrEmpty(area) || (double.TryParse(area, out var areaValue) && x.Area == areaValue))
-            ).ToList();
+            return TransientData
+                .GetStocks()
+                .Where(x =>
+                    (string.IsNullOrEmpty(province) || x.Province.ToLower() == province.ToLower())
+                    && (string.IsNullOrEmpty(type) || x.Type.ToLower().Equals(type.ToLower()))
+                    && (
+                        string.IsNullOrEmpty(area)
+                        || (double.TryParse(area, out var areaValue) && x.Area == areaValue)
+                    )
+                )
+                .ToList();
         }
     }
 }

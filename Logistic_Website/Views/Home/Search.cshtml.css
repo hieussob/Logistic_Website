@@ -18,9 +18,9 @@
     position: relative;
 }
 
-.schedule-item.highlighted {
-    border: 2px solid #8a2be2;
-}
+    .schedule-item.highlighted {
+        border: 2px solid #8a2be2;
+    }
 
 .shipping-line {
     background-color: #0f2649;
@@ -139,16 +139,13 @@
 
 
 @media (max-width: 1200px) {
-    .container
-    {
+    .container {
         width: 95%;
     }
-
 }
 
 @media (max-width: 768px) {
-    .route-info
-    {
+    .route-info {
         flex-direction: column;
     }
 
