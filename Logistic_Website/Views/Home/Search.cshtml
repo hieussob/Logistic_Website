@@ -62,7 +62,62 @@
                         <button class="action-button schedule-btn">Lưu lịch tàu</button>
                         <button class="action-button detail-btn">Chi tiết</button>
                     </div>
-                </div>
+                        
+                  </div>
+                    <div class="detail-content" style="display:none; margin-top: 10px;">
+                        <!-- Departure -->
+                        <div class="detail-row">
+                            <span class="detail-icon"><i class="fa-solid fa-location-dot"></i></span>
+                            <span class="detail-port">@item.Origin</span>
+                            <span class="detail-time">@item.ETD</span>
+                            <span class="detail-subtext">• ETD at POL</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label"></span>
+                            <span class="detail-subtext" style="margin-left:-100px">GREEN PORT</span>
+                        </div>
+
+                        <!-- Hub 1 -->
+                        <div class="detail-vessel">
+                            <div class="detail-row">
+                                <i class="fa-solid fa-ship"></i>
+                                <span>@item.Vessel</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-icon"><i class="fa-solid fa-location-dot"></i></span>
+                                <span class="detail-port">@item.Hub</span>
+                                <span class="detail-time">@item.ETAHub</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label"></span>
+                                    <span class="detail-subtext" style="margin-left:-100px">KBCT(BPT SINSEONDAE)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-icon"><i class="fa-solid fa-location-dot"></i></span>
+                                <span class="detail-port">@item.Hub</span>
+                                <span class="detail-time">@item.ETDHub</span>
+                                <span class="detail-subtext">• ETD at POL</span>
+                            </div>
+                        </div>
+
+                        <!-- Arrival -->
+                        <div class="detail-vessel">
+                            <div class="detail-row">
+                                <i class="fa-solid fa-ship"></i>
+                                <span>@item.MV</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-icon"><i class="fa-solid fa-location-dot" style="color:green;"></i></span>
+                                <span class="detail-port">@item.Destination</span>
+                                <span class="detail-time">@item.ETA</span>
+                                <span class="detail-subtext">• ETA at POL</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label"></span>
+                                    <span class="detail-subtext" style="margin-left:-100px">SINGAPORE PORT AUTHORITY(S.A.)</span>
+                            </div>
+                        </div>
+                    </div>
             </div>
         }
     </div>
@@ -81,6 +136,18 @@
     </div>
 </div>
 
+@section Scripts {
+        <script>
+            $(document).ready(function () {
+                $('.detail-btn').on('click', function () {
+                    var detail = $(this).closest('.schedule-item').find('.detail-content');
+                    detail.slideToggle(); 
+                });
+            });
+        </script>
+}
+
+
 <style>
     /* Pagination */
     .pagination {
@@ -90,19 +157,69 @@
         margin: 0px 0px 20px 0px;
     }
 
-        .pagination a, .pagination span {
-            display: inline-block;
-            padding: 5px 10px;
-            text-decoration: none;
-            border: 1px solid #ddd;
-            color: gray;
-        }
+    .pagination a, .pagination span {
+        display: inline-block;
+        padding: 5px 10px;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        color: gray;
+    }
 
-        .pagination .active {
-            border: 1px solid black;
-            background: #0f2649;
-            color: white !important;
-        }
+    .pagination .active {
+        border: 1px solid black;
+        background: #0f2649;
+        color: white !important;
+    }
+    .detail-content {
+        padding: 16px;
+        background-color: #f0f0f0;
+        font-family: "Segoe UI", sans-serif;
+        font-size: 14px;
+    }
+
+    .detail-row {
+        display: flex;
+        align-items: left;
+        gap: 8px;
+        margin-bottom: 6px;
+    }
+
+    .detail-label {
+        font-weight: bold;
+        color: #333;
+        min-width: 100px;
+    }
+
+    .detail-icon {
+        width: 20px;
+        text-align: center;
+        color: #007bff;
+    }
+
+    .detail-port {
+        font-weight: 500;
+    }
+
+    .detail-time {
+        font-weight: 600;
+    }
+
+    .detail-subtext {
+        color: #777;
+        font-size: 13px;
+    }
+
+    .detail-vessel {
+        background-color: #f9f9f9;
+        padding: 8px 12px;
+        margin: 12px 0;
+        border-radius: 6px;
+    }
+
+    .detail-vessel i {
+        color: #007bff;
+        margin-right: 6px;
+    }
 </style>
 
 
