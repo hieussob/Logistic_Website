@@ -1,0 +1,81 @@
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model List<LiftOnLiftOff>
+<div class="w-100">
+    <table class="tg mb-5" style="width:95%; margin:auto;">
+        <thead>
+            <tr>
+                <th class="tg-tbjv" rowspan="2">PORT / DEPOT</th>
+                <th class="tg-tbjv" colspan="3">LADEN   CONTAINER</th>
+                <th class="tg-tbjv" colspan="3">EMPTY CONTAINER</th>
+                <th class="tg-tbjv" rowspan="2">VALID</th>
+                <th class="tg-tbjv" rowspan="2">MARK</th>
+                <th class="tg-tbjv" rowspan="2">CITY</th>
+            </tr>
+            <tr>
+                <th class="tg-tbjv">20'</th>
+                <th class="tg-tbjv">40'</th>
+                <th class="tg-tbjv">45'</th>
+                <th class="tg-tbjv">20' </th>
+                <th class="tg-tbjv">40'</th>
+                <th class="tg-tbjv">45'</th>
+            </tr>
+        </thead>
+        <tbody>
+                @foreach(var item in Model){
+                    <tr>
+                <td class="tg-nrix">@Html.Raw(@item.PortDepot)</td>
+                <td class="tg-nrix">@Html.Raw(@item.LadenContainer.Feet20)</td>
+                <td class="tg-nrix">@Html.Raw(@item.LadenContainer.Feet40)</td>
+                <td class="tg-nrix">@Html.Raw(@item.LadenContainer.Feet45)</td>
+                <td class="tg-nrix">@Html.Raw(@item.EmptyContainer.Feet20)</td>
+                <td class="tg-nrix">@Html.Raw(@item.EmptyContainer.Feet20)</td>
+                <td class="tg-nrix">@Html.Raw(@item.EmptyContainer.Feet20)</td>
+                <td class="tg-nrix">@Html.Raw(@item.Valid)</td>
+                <td class="tg-nrix">@Html.Raw(@item.Mark)</td>
+                    <td class="tg-nrix">@Html.Raw(@item.City)</td>
+                </tr>
+                }
+        </tbody>
+    </table>
+</div>
+<style type="text/css">
+    .tg {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+        .tg td {
+            border-color: black;
+            border-style: solid;
+            border-width: 1px;
+            font-size: 14px;
+            overflow: hidden;
+            padding: 10px 5px;
+            word-break: normal;
+        }
+
+        .tg th {
+            border-color: black;
+            border-style: solid;
+            border-width: 1px;
+            font-size: 14px;
+            font-weight: normal;
+            overflow: hidden;
+            padding: 10px 5px;
+            word-break: normal;
+        }
+
+        .tg .tg-tbjv {
+            background-color: #a4c2f4;
+            font-weight: bold;
+            text-align: center;
+            vertical-align: middle
+        }
+
+        .tg .tg-nrix {
+            text-align: center;
+            vertical-align: middle
+        }
+</style>

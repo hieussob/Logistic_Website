@@ -1,13 +1,28 @@
-﻿@model List<FeeLookup>
-
+@using Logistic_Website.Controllers
+@{
+    var feeLookups = ViewBag.FeeLookups as List<FeeLookup>;
+    var liftOnOffs = ViewBag.LiftOnOffs as List<LiftOnLiftOff>;
+    var feeType = (FeeType)ViewBag.FeeType;
+}
 <div class="container w-75 my-5">
     <div class="row mb-5 justify-content-center">
         <div class="col-8">
             <select id="dropdown" class="form-select" multiple>
-                @foreach (var item in Model)
+                @if (feeType == FeeType.LCC)
                 {
-                    <option value="@item.Name">@item.Name</option>
+                    @foreach (var item in feeLookups)
+                    {
+                        <option value="@item.Name">@item.Name</option>
+                    }
                 }
+                else
+                {
+                    @foreach (var item in liftOnOffs.DistinctBy(x => x.City))
+                    {
+                        <option value="@item.City">@item.City</option>
+                    }
+                }
+
             </select>
         </div>
         <button id="searchBtn" class="btn text-uppercase fw-bold col-2" style="background-color:#1b2737; color:white;">
@@ -15,34 +30,31 @@
         </button>
     </div>
 
-    <div class="row w-100 mb-5 justify-content-between ">
-        <button class="btn  col-3" style="background-color: #d9d9d9;
-        color: #1b2737;">
-            lcc export
-        </button>
-        <button class="btn  col-3" style="background-color: #d9d9d9;
-        color: #1b2737;">
-            lcc import
-        </button>
-        <button class="btn col-3" style="background-color: #d9d9d9;
-        color: #1b2737;">
-            lift on/ lift off fee
-        </button>
-    </div>
+    <form id="feeTypeForm" method="get" asp-controller="FeeLookup" asp-action="Index">
+        <input type="hidden" name="feeType" id="feeTypeInput" value="" />
 
-    <div class="row w-100 mb-5 justify-content-around">
-        <button class="btn col-3 text-uppercase" style="background-color: #d9d9d9;
-        color: #1b2737;">
-            Dem det export
-        </button>
-        <button class="btn  col-3" style="background-color: #d9d9d9;
-        color: #1b2737;">
-            dem det import
-        </button>
-    </div>
+        <div class="row w-100 mb-5 justify-content-between">
+            <button type="button" class="btn col-3 fee-btn" data-feetype="LCC">lcc export</button>
+            <button type="button" class="btn col-3 fee-btn" data-feetype="LCC">lcc import</button>
+            <button type="button" class="btn col-3 fee-btn" data-feetype="LOLO">lift on/ lift off fee</button>
+        </div>
+
+        <div class="row w-100 mb-5 justify-content-around">
+            <button type="button" class="btn col-3 fee-btn" data-feetype="LCC">Dem det export</button>
+            <button type="button" class="btn col-3 fee-btn" data-feetype="LCC">dem det import</button>
+        </div>
+    </form>
+
 </div>
 <div id="feeTableContainer">
-    @await Html.PartialAsync("_FeeTable", Model)
+    @if (feeType == FeeType.LCC)
+    {
+        @await Html.PartialAsync("_FeeTable", feeLookups)
+    }
+    else
+    {
+        @await Html.PartialAsync("_LiftOnLiftOffTable", liftOnOffs)
+    }
 </div>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -54,15 +66,29 @@
         });
         document.getElementById("searchBtn").addEventListener("click", function () {
             const selectedValues = dropdown.getValue().map(item => item.value);
+            const feeType = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.FeeType))
+
+            const searchRequest = {
+                selectedNames: selectedValues,
+                feeType: feeType
+            };
+            console.log(searchRequest);
             fetch("@Url.Action("Search", "FeeLookup")", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(selectedValues)
+                body: JSON.stringify(searchRequest)
             })
             .then(response => response.text())
             .then(data => {
                 document.getElementById("feeTableContainer").innerHTML = data;
             })
+        });
+    });
+     document.querySelectorAll('.fee-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+            const type = this.getAttribute('data-feetype');
+            document.getElementById('feeTypeInput').value = type;
+            document.getElementById('feeTypeForm').submit();
         });
     });
 </script>
@@ -89,43 +115,8 @@
         background-color: #d9d9d9;
         color: #1b2737;
     }
-
-    .tg {
-        border-collapse: collapse;
-        border-spacing: 0;
+    .fee-btn{
+        background-color: #d9d9d9;
+        color: #1b2737;
     }
-
-        .tg td {
-            border-color: black;
-            border-style: solid;
-            border-width: 1px;
-            font-size: 14px;
-            overflow: hidden;
-            padding: 10px 5px;
-            word-break: normal;
-        }
-
-        .tg th {
-            border-color: black;
-            border-style: solid;
-            border-width: 1px;
-            font-size: 14px;
-            font-weight: normal;
-            overflow: hidden;
-            padding: 10px 5px;
-            word-break: normal;
-        }
-
-        .tg .tg-c3ow {
-            border-color: inherit;
-            text-align: center;
-            vertical-align: top
-        }
-
-        .tg .tg-7btt {
-            border-color: inherit;
-            font-weight: bold;
-            text-align: center;
-            vertical-align: central
-        }
 </style>
