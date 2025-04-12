@@ -178,13 +178,6 @@ namespace Logistic_Website.Controllers
                     PeopleJoinCount = 419234,
                     ThreadCount = 234827,
                 },
-                new()
-                {
-                    Name = "ONE",
-                    Descreption = "Hãng tàu ONE",
-                    PeopleJoinCount = 12834,
-                    ThreadCount = 8348,
-                },
             ];
         }
 

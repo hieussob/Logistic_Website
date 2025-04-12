@@ -33,6 +33,9 @@ public class HomeController : Controller
             new SelectListItem { Value = "DANANG", Text = "DANANG" },
             new SelectListItem { Value = "HAIPHONG", Text = "HAIPHONG" },
             new SelectListItem { Value = "SINGAPORE", Text = "SINGAPORE" },
+            new SelectListItem { Value = "ROTTERDAM", Text = "ROTTERDAM" },
+            new SelectListItem { Value = "VANCOUVER", Text = "VANCOUVER" },
+            new SelectListItem { Value = "SYDNEY", Text = "SYDNEY" },
         };
 
         var filteredPorts = ports

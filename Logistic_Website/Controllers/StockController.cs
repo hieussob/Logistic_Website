@@ -11,7 +11,7 @@ namespace Logistic_Website.Controllers
         [HttpGet]
         public IActionResult Index(int? page)
         {
-            ViewBag.Provinces = new[] { "HOCHIMINH", "HAI PHONG" };
+            ViewBag.Provinces = new[] { "BA RIA VUNG TAU", "HAI PHONG", "HA NOI", "DONG NAI", "TP. HCM", "BINH DUONG" };
             ViewBag.Types = new[]
             {
                 "Kho thường",
@@ -40,7 +40,7 @@ namespace Logistic_Website.Controllers
             //ViewData["Province"] = province;
             //ViewData["Type"] = type;
             //ViewData["Area"] = area;
-            ViewBag.Provinces = new[] { "HOCHIMINH", "HAI PHONG" };
+            ViewBag.Provinces = new[] { "BA RIA VUNG TAU", "HAI PHONG", "HA NOI", "DONG NAI", "TP. HCM", "BINH DUONG" };
             ViewBag.Types = new[]
             {
                 "Kho thường",
