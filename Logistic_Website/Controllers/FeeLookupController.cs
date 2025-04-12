@@ -33,7 +33,7 @@ namespace Logistic_Website.Controllers
             {
                 return PartialView("_LiftOnLiftOffTable", LiftOnOffs);
             }
-            var resultLOLO = LiftOnOffs.Where(f => searchRequest.SelectedNames.Contains(f.City)).ToList();
+            var resultLOLO = LiftOnOffs.Where(f => searchRequest.SelectedNames.Contains(f.NamePort)).ToList();
             return PartialView("_LiftOnLiftOffTable", resultLOLO);
         }
     }

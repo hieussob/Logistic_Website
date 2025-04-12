@@ -8,6 +8,7 @@ public class LiftOnLiftOff
     public string Valid { get; set; }
     public string Mark { get; set; }
     public string City { get; set; }
+    public string NamePort { get; set; }
 }
 
 public class ShipContainer

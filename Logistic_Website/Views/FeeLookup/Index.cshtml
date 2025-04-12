@@ -17,9 +17,9 @@
                 }
                 else
                 {
-                    @foreach (var item in liftOnOffs.DistinctBy(x => x.City))
+                    @foreach (var item in liftOnOffs.DistinctBy(x => x.NamePort))
                     {
-                        <option value="@item.City">@item.City</option>
+                        <option value="@item.NamePort">@item.NamePort</option>
                     }
                 }
 

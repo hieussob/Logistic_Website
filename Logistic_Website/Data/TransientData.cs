@@ -127,6 +127,8 @@ namespace Logistic_Website.Data
                     Valid = CleanText(worksheet.Cells[row, 8].Text),
                     Mark = CleanText(worksheet.Cells[row, 9].Text),
                     City = CleanText(worksheet.Cells[row, 10].Text),
+                    NamePort = CleanText(worksheet.Cells[row, 11].Text),
+
                 };
                 liftOnLiftOffs.Add(data);
             }
