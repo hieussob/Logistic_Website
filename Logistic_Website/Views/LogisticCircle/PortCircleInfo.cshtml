@@ -11,7 +11,7 @@
                     <button class="selectable-btn btn btn-secondary w-100 rounded-0 py-3 match-height-btn fs-6" data-action-url="@Url.Action("News")">Let every potential customer see you !</button>
                 </div>
                 <div class="pb-2">
-                    <button class="selectable-btn btn btn-secondary w-100 rounded-0 py-3 match-height-btn fs-6" data-action-url="@Url.Action("PortCircle")">Port circle</button>
+                    <button class="selectable-btn btn btn-secondary w-100 rounded-0 py-3 match-height-btn fs-6 active" data-action-url="@Url.Action("PortCircle")">Port circle</button>
                 </div>
                 <div class="pb-2">
                     <button class="selectable-btn btn btn-secondary w-100 rounded-0 py-3 match-height-btn fs-6" data-action-url="@Url.Action("ServiceCircle")">Service Circle</button>
@@ -50,7 +50,79 @@
 
         </div>
 
-        <div id="main-content" class="col-8 d-flex justify-content-start align-items-center flex-column">
+        <div id="main-content" style="padding-left:60px" class="col-8 d-flex justify-content-start flex-column">
+            <div class="py-3" style="background-color:#f1f1f1">
+                <div class="d-flex w-100 align-items-center p-2 gap-2">
+                    <div class="pe-2">
+                        <img src="~/content/images/TrungQuynhAnhAvatar.png" alt="Alternate Text" class="rounded-circle" width="68px;" height="68px;" />
+                    </div>
+                    <div class="flex-row">
+                        <div class="fs-6 fw-bold">Đỗ Kim Hải</div>
+                        <div style="font-size:0.625rem;">Bên em đang có lô hàng than mùn cưa từ HPH - Dubai. Bên nào chuyên hàng tuyến HPH - Dubai. Bên chuyên hàng tuyến này để lại thông tin giúp em ạ. </div>
+                    </div>
+                </div>
+                <div class="p-2 d-flex flex-row justify-content-between align-items-center w-100">
+
+                    <div class="d-flex gap-2 align-items-center px-3">
+                        <div class="actions mb-2">
+                            <i class="bi bi-heart-fill text-danger">Quan tâm</i>
+                            <i class="bi bi-chat-left-text-fill text-primary" style="margin-left:15px">Bình luận</i>
+                            <i class="bi bi-send-fill text-success" style="margin-left:15px">Gửi tin nhắn</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="py-3 mt-3" style="background-color:#f1f1f1">
+                <div class="d-flex w-100 align-items-center p-2 gap-2">
+                    <div class="pe-2">
+                        <img src="https://photo.znews.vn/w660/Uploaded/sgtnrn/2024_11_22/TT.png" alt="Alternate Text" class="rounded-circle" width="68px;" height="68px;" />
+                    </div>
+                    <div class="flex-row">
+                        <div class="fs-6 fw-bold">Trần Văn Tuấn</div>
+                        <div style="font-size:0.625rem;">Em chuyên làm giám định vanning cho hàng than xuất khẩu. Anh/chị cần hỗ trợ liên hệ em tư vấn ạ. 0373851514</div>
+                    </div>
+                </div>
+                <div class="p-2 d-flex flex-row justify-content-between align-items-center w-100">
+                    <div class="px-5">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6ZKyi1HfM4wNKUl48rwq5GDhysW39lAc-wQ&s" />
+                    </div>
+                </div>
+            </div>
+            <div class="py-3 mt-3" style="background-color:#f1f1f1">
+                <div class="d-flex w-100 align-items-center p-2 gap-2">
+                    <div class="pe-2">
+                        <img src="https://cdn.pixabay.com/photo/2022/10/17/15/02/photography-7527978_1280.jpg" alt="Alternate Text" class="rounded-circle" width="68px;" height="68px;" />
+                    </div>
+                    <div class="flex-row">
+                        <div class="fs-6 fw-bold">Lê Đức Thạch</div>
+                        <div style="font-size:0.625rem;">
+                            Add zalo em hỗ trợ nhé: 0931.796.080
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2 d-flex flex-row justify-content-between align-items-center w-100">
+                    <div class="px-5">
+                    </div>
+                </div>
+            </div>
+            <div class="py-3 mt-3" style="background-color:#f1f1f1">
+                <div class="d-flex w-100 align-items-center p-2 gap-2">
+                    <div class="pe-2">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNCSvtGejnvohIJzkjB5-3v_JhsOkN6ODZgw&s" alt="Alternate Text" class="rounded-circle" width="68px;" height="68px;" />
+                    </div>
+                    <div class="flex-row">
+                        <div class="fs-6 fw-bold">Trần Minh Hiếu</div>
+                        <div style="font-size:0.625rem;">
+                            Chị có thể kết bạn zalo với em số 0939090188 để trao đổi chi tiết được không ạ.
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2 d-flex flex-row justify-content-between align-items-center w-100">
+                    <div class="px-5">
+                    </div>
+                </div>
+            </div>
+
         </div>
         <div class="ps-2 col-2 border-start d-flex flex-column align-items-center" style="position: sticky; top: 0; height: 100%; overflow-y: auto;">
             <div class="w-100 mb-2" style="background-color: #f1f1f1;">
@@ -129,12 +201,6 @@
             });
         });
 
-        // Gọi mặc định nút đầu tiên
-        if (buttons.length > 0) {
-            const defaultBtn = buttons[0];
-            const defaultUrl = defaultBtn.getAttribute('data-action-url');
-            fetchContent(defaultUrl, defaultBtn);
-        }
 
         function fetchContent(url, btn) {
             fetch(url)
@@ -147,7 +213,7 @@
                 })
                 .catch(err => console.error("Error loading content:", err));
         }
-  
+
         function initSearchReviewScript() {
         const searchBtn = document.getElementById("searchReviewButton");
         const searchInput = document.getElementById("searchReviewInput");
@@ -174,3 +240,19 @@
     });
 
 </script>
+
+<style>
+    .selectable-btn {
+        background-color: #f0f0f0;
+        color: black;
+        font-weight: normal;
+        border: 1px solid black;
+    }
+
+        .selectable-btn.active {
+            background-color: #1a2737;
+            color: white;
+            font-weight: bold;
+            border: none;
+        }
+</style>
