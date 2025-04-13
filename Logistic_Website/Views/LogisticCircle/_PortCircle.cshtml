@@ -25,7 +25,8 @@
                     @foreach (var circle in Model.Skip(i * 2).Take(2))
                     {
                         <div class="pb-1 col" style="background-color: #f1f1f1;">
-                            <button class="py-4 btn w-100 h-100 d-flex align-items-center gap-5 rounded-0 border-dark border-1">
+                        <form asp-controller="LogisticCircle" asp-action="PortCircleInfo" >
+                            <button type="submit"  class="py-4 btn w-100 h-100 d-flex align-items-center gap-5 rounded-0 border-dark border-1">
                                 <div>
                                     <h6 class="text-uppercase text-light p-3 fw-bold m-auto fs-6 d-flex align-items-center justify-content-center" style="background-color:#1a2737;width:7.375rem;height:7.75rem;">@circle.Name</h6>
                                 </div>
@@ -38,7 +39,8 @@
                                         Số bài viết: @circle.ThreadCount
                                     </span>
                                 </div>
-                            </button>
+                                </button>
+                            </form>
                         </div>
                     }
                 </div>

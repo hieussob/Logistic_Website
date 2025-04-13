@@ -24,6 +24,12 @@ namespace Logistic_Website.Controllers
             return PartialView("_PortCircle", model);
         }
 
+        public IActionResult PortCircleInfo()
+        {
+            ViewBag.Suggest = GetSuggestUser();
+            return View();
+        }
+
         public IActionResult Review()
         {
             var model = new List<RateUserInfor>();
