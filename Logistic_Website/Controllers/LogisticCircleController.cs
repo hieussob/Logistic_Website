@@ -165,24 +165,31 @@ namespace Logistic_Website.Controllers
                 },
                 new()
                 {
-                    Name = "hàng nguy hiểm",
+                    Name = "HÀNG NGUY HIỂM",
                     Descreption = "Vòng vận chuyển hàng nguy hiểm",
                     PeopleJoinCount = 17500,
                     ThreadCount = 12789,
                 },
                 new()
                 {
-                    Name = "hàng cỡ lớn đặc biệt",
+                    Name = "HÀNG ĐẶC BIỆT CỠ LỚN",
                     Descreption = "Vòng vận chuyển hàng cỡ lớn đặc biệt",
                     PeopleJoinCount = 3234,
                     ThreadCount = 986,
                 },
                 new()
                 {
-                    Name = "LCL Châu Mỹ - Latinh",
+                    Name = "LCL CHÂU MỸ - LATINH",
                     Descreption = "Vòng tròn LCL Châu Mỹ - Latinh",
                     PeopleJoinCount = 419234,
                     ThreadCount = 234827,
+                },
+                new()
+                {
+                    Name = "HÀNG QUÁ CẢNH BÁO",
+                    Descreption = "Hàng quá cảnh Lào",
+                    PeopleJoinCount = 12834,
+                    ThreadCount = 8348,
                 },
             ];
         }
